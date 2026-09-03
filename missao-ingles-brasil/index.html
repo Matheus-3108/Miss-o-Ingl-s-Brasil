@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover" />
+  <title>Missão Inglês Brasil</title>
+  <meta name="description" content="Aprenda inglês através de uma jornada gamificada: mundos, fases, exercícios, boss battles e conquistas." />
+  <meta name="theme-color" content="#00BCD4" />
+
+  <!-- Fontes usadas pelo design system (css/style.css) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Raiz da SPA. Todo o conteúdo é renderizado dinamicamente por js/app.js -->
+  <div id="root">
+    <div class="app-shell">
+      <div class="welcome-screen">
+        <div class="welcome-logo">🇬🇧</div>
+        <h1 class="welcome-title">MISSÃO INGLÊS BRASIL</h1>
+        <p class="welcome-sub">Carregando...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Captura, ANTES de tudo, qualquer falha ao carregar ou executar
+       js/data.js e js/engine.js (arquivo não encontrado, erro de sintaxe,
+       erro em tempo de execução) para exibir o motivo exato na tela de
+       erro do app, sem precisar abrir o Console do navegador (F12). -->
+  <script>
+    window.__MIB_LOAD_ERRORS = [];
+    window.addEventListener(
+      "error",
+      function (e) {
+        if (e && e.target && e.target.tagName === "SCRIPT") {
+          window.__MIB_LOAD_ERRORS.push("Arquivo não encontrado ou bloqueado: " + e.target.getAttribute("src"));
+        } else if (e && e.message) {
+          window.__MIB_LOAD_ERRORS.push((e.filename ? e.filename.split("/").slice(-2).join("/") + ":" + e.lineno + " — " : "") + e.message);
+        }
+      },
+      true
+    );
+  </script>
+
+  <!-- Ordem de carregamento obrigatória: data -> engine -> app -->
+  <script src="js/data.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
